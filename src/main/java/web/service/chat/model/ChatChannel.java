@@ -12,4 +12,9 @@ public class ChatChannel {
     private String userId1;
 
     private String userId2;
+
+    public ChatChannel(String userId1, String userId2) {
+        this.userId1 = userId1;
+        this.userId2 = userId2;
+    }
 }
