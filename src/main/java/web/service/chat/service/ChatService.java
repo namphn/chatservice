@@ -28,6 +28,10 @@ public class ChatService {
                 request.getUserId1(), request.getUserId2()
         );
 
+        if(chatChannels == null || chatChannels.isEmpty()) {
+            chatChannels = this.chatChannelRepository.findByUserId1AndAndUserId2(
+                    request.getUserId2(), request.getUserId1());
+        }
         return (chatChannels != null && !chatChannels.isEmpty() ? chatChannels.get(0).getUuid() : null);
     }
 
