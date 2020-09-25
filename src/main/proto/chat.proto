@@ -1,0 +1,25 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_generic_services = true;
+option java_package = "web.service.chat.rpc";
+
+message ChatMessage {
+  string fromUser = 1;
+  string toUser = 2;
+  string content = 3;
+}
+
+message GetChannelRequest {
+  string userId1 = 1;
+  string userId2 = 2;
+}
+
+message GetChannelResponse {
+  string uuid = 1;
+}
+
+service ChatService {
+  rpc getChannel (GetChannelRequest) returns (GetChannelResponse);
+}
+
+
