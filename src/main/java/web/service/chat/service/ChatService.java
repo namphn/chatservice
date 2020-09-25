@@ -7,9 +7,9 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import web.service.chat.model.ChatChannel;
 import web.service.chat.model.ChatMessage;
-import web.service.chat.model.request.GetChanelRequest;
 import web.service.chat.repository.ChatChannelRepository;
 import web.service.chat.repository.ChatMessageRepository;
+import web.service.chat.rpc.GetChannelRequest;
 
 import java.util.List;
 
@@ -23,7 +23,7 @@ public class ChatService {
     @Autowired
     private ChatMessageRepository chatMessageRepository;
 
-    public String getExistingChanel(GetChanelRequest request) {
+    public String getExistingChanel(GetChannelRequest request) {
         List<ChatChannel> chatChannels = this.chatChannelRepository.findByUserId1AndAndUserId2(
                 request.getUserId1(), request.getUserId2()
         );
@@ -35,7 +35,7 @@ public class ChatService {
         return (chatChannels != null && !chatChannels.isEmpty() ? chatChannels.get(0).getUuid() : null);
     }
 
-    public String newChatChannel(GetChanelRequest request) {
+    public String newChatChannel(GetChannelRequest request) {
         String existingChannel = this.getExistingChanel(request);
 
         if(existingChannel != null) {

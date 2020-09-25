@@ -9,13 +9,13 @@ import lombok.Setter;
 public class ChatMessage {
 
     private String content;
-    private String fromUser;
-    private String toUser;
+    private String userId1;
+    private String userId2;
     private LocalDateTime dateTime = LocalDateTime.now();;
 
-    public ChatMessage(String content, String fromUser, String toUser) {
+    public ChatMessage(String content, String userId1, String userId2) {
         this.content = content;
-        this.fromUser = fromUser;
-        this.toUser = toUser;
+        this.userId1 = userId1;
+        this.userId2 = userId2;
     }
 }
