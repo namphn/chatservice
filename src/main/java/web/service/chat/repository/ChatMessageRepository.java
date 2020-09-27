@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface ChatMessageRepository extends MongoRepository<ChatMessage, String> {
-    List<ChatMessage> findAllByFromUserAndAndToUser(String fromUserId, String toUserId, Pageable pageable);
+    List<ChatMessage> findAllByUserId1AndUserId2(String fromUserId, String toUserId, Pageable pageable);
 }

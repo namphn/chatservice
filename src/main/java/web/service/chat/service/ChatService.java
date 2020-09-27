@@ -58,7 +58,7 @@ public class ChatService {
         Pageable sortedByPriceDesc =
                 PageRequest.of(0, this.MAX_PAGABLE_CHAT_MESSAGES, Sort.by("dateTime").descending());
 
-        List<ChatMessage> chatMessageList = chatMessageRepository.findAllByFromUserAndAndToUser(
+        List<ChatMessage> chatMessageList = chatMessageRepository.findAllByUserId1AndUserId2(
                 chatChannel.getUserId1(), chatChannel.getUserId2(),
                 sortedByPriceDesc
         );
