@@ -4,9 +4,13 @@ option java_generic_services = true;
 option java_package = "web.service.chat.rpc";
 
 message ChatMessage {
-  string fromUser = 1;
-  string toUser = 2;
+  string userId1 = 1;
+  string userId2 = 2;
   string content = 3;
+}
+
+message SubmitResponse {
+  string status = 1;
 }
 
 message GetChannelRequest {
@@ -20,6 +24,7 @@ message GetChannelResponse {
 
 service ChatService {
   rpc getChannel (GetChannelRequest) returns (GetChannelResponse);
+  rpc submit (ChatMessage) returns (SubmitResponse);
 }
 
 
